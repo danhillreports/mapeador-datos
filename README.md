@@ -8,8 +8,8 @@ This is a very new project and I explect to be cleaning it up heavily over the n
 ## Snippets
 
 ```html
-  <link href="http://kcollins.io/datamapper.js/datamapper.css" media="all" rel="stylesheet" />
-  <script src="http://kcollins.io/datamapper.js/datamapper.js" type="text/javascript"></script>
+  <link href="http://kcollins.io/data-mapper/datamapper.css" media="all" rel="stylesheet" />
+  <script src="http://kcollins.io/data-mapper/datamapper.js" type="text/javascript"></script>
 ```
 
 ## Usage
