@@ -104,7 +104,7 @@ function datamapper(mapContainer, mapType, data) {
         var btnactive = (seq == startSeq) ? "active" : "";
         d3.select("#dm-sequence-btns").append("button")
           .attr("class","dm-sequence-btn btn "+btnactive)
-          .attr("id",seq)
+          .attr("id","e"+seq)
           .html(seq)
       });
     } else {
@@ -147,7 +147,7 @@ function datamapper(mapContainer, mapType, data) {
       var btnactive = (d == selectedField) ? "active" : "";
       d3.select("#dm-fld-btns").append("button")
         .attr("class","dm-fld-btn btn "+btnactive)
-        .attr("id",d)
+        .attr("id","e"+d)
         .html(d)
     });
 
@@ -257,9 +257,10 @@ function datamapper(mapContainer, mapType, data) {
       });
 
     d3.selectAll(".dm-sequence-btn").on("click",function() {
-      id = this.id;
+      id = this.id.substr(1);
       selectedSeq = id;
-      $("#"+id).addClass("active").siblings(".dm-sequence-btn").removeClass("active");
+      d3.selectAll(".dm-sequence-btn").classed("active",false);
+      d3.select("#"+this.id).classed("active",true);
       if (mapType == "bubble") {
         d3.selectAll(".dm-dots")
           .data(mapData[id])
@@ -270,9 +271,10 @@ function datamapper(mapContainer, mapType, data) {
     });
 
     d3.selectAll(".dm-fld-btn").on("click",function() {
-      id = this.id;
+      id = this.id.substr(1);
       selectedField = id;
-      $("#"+id).addClass("active").siblings(".dm-fld-btn").removeClass("active");
+      d3.selectAll(".dm-fld-btn").classed("active",false);
+      d3.select("#"+this.id).classed("active",true);
       if (mapType == "bubble") {
         radius.domain([0, minmax[selectedField][endSeq][1]])
         d3.selectAll(".dm-dots").call(changeSeq);
