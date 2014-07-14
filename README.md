@@ -1,7 +1,7 @@
 Data Mapper
 ===========
 
-Generate county-level choropleth or bubble maps. Working demo at <a href="kcollins.io/data-mapper/">kcollins.io</a>
+Generate county-level choropleth or bubble maps. Working demo at <a href="//kcollins.io/data-mapper/">kcollins.io/data-mapper/</a>
 
 This is a very new project and I explect to be cleaning it up heavily over the next month or two.
 
@@ -23,4 +23,4 @@ Data Mapper requires <a href="https://github.com/mbostock/d3">d3.js</a> and <a h
   // data is your data, not nested
 ```
 
-If you want to test it out, just paste in a CSV at <a href="kcollins.io/data-mapper/">kcollins.io</a>
+If you want to test it out, just paste in a CSV at <a href="//kcollins.io/data-mapper/">kcollins.io/data-mapper/</a>
