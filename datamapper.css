@@ -1,0 +1,50 @@
+.dm-counties {
+  fill: none;
+}
+
+.dm-nation {
+  fill: none;
+  stroke-width:0.5px;
+  stroke:#999;
+}
+
+#dm-legend-container {
+  width:160px;
+  height:50px;
+  position: absolute;
+  right:0px;
+}
+
+.dm-legend-dots {
+  fill: #000;
+  fill-opacity: .5;
+  stroke: none;
+  stroke-width: 0;
+}
+
+.dm-dots {
+  fill: #000;
+  fill-opacity: .5;
+  stroke: none;
+  stroke-width: 0;
+}
+
+.dm-dots:hover {
+  stroke-width: .5px;
+  stroke: #000;
+  fill-opacity:1;
+}
+
+.dm-tooltip {
+  font-family:"Arial","Helvetica";
+  position: absolute;
+  top:-1000px;    
+  width: 250px;
+  min-height:90px;                                
+  padding: 10px;             
+  font-size: 13px;        
+  background: #fff;   
+  border: 1px solid #666;
+  box-shadow: 1px 1px 10px #666;
+  color:#666;           
+}
