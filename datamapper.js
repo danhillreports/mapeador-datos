@@ -282,6 +282,9 @@ function datamapper(mapContainer, mapType, data) {
           .data([1,minmax[selectedField][endSeq][1]])
           .call(changeLegendText);
       } else {
+        quantize
+          .domain([0, minmax[selectedField][selectedSeq][1]/2])
+          .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
         d3.selectAll(".dm-county").call(getFill);
       }
     });
