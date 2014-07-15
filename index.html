@@ -104,7 +104,8 @@
 
   d3.select("#download-svg").on("click",function() {
     var svgtext = document.getElementById("map").innerHTML;
-    svgtext = svgtext.replace('<div class="tooltip" style="opacity: 0; width: 220px; min-height: 100px;"></div>','');
+    var regex = /<div(.*)/;
+    svgtext = svgtext.replace(regex,'');
     var blob = new Blob([svgtext], {type: "image/svg+xml"});
     saveAs(blob, "datamapper.svg");
   });

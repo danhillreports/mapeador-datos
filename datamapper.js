@@ -21,8 +21,10 @@ function datamapper(mapContainer, mapType, data) {
   var width = 960,
       height = 600;
   var formatNumber = d3.format(",.0f");
+
   var path = d3.geo.path()
-      .projection(null);
+      .projection(null)
+
   var ttwidth = 220,
       ttheight = 100;
   
