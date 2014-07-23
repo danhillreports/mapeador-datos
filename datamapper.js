@@ -65,17 +65,12 @@ function datamapper(mapContainer, mapType, data) {
     // get field names for values
     var keys = Object.keys(data[0]);
     var valFields = [];
-    var str = "{";
     keys.forEach(function(d,i) {
-      var comma = (i == keys.length-1) ? "" : ","
-      str += '"'+d+'":0'+comma;
       if (d !== "sequence" && d !== "fips") {
         valFields.push(d);
       }
     });
-    str += "}";
-    // create empty array for nulls in input
-    var emptyArr = JSON.parse(str);
+
     // set selected field to first in array
     selectedField = valFields[0];
 
@@ -128,8 +123,20 @@ function datamapper(mapContainer, mapType, data) {
         if (typeof nestedData[county.fips] !== "undefined" && typeof nestedData[county.fips][seq] !== "undefined") {
           mapData[seq].push(nestedData[county.fips][seq][0]);
         } else {
+          var str = "{";
+          keys.forEach(function(key,i) {
+            var comma = (i == keys.length-1) ? "" : ","
+            var val = 0;
+            if (key == "fips") {
+              val = county.fips;
+            } else if (key == "sequence") {
+              val = seq;
+            }
+            str += '"'+key+'":"'+val+'"'+comma;
+          });
+          str += "}";
           // push the empty array if there's no inputted data for this county
-          mapData[seq].push(emptyArr);
+          mapData[seq].push(JSON.parse(str));
         }
       });
     });
