@@ -1,0 +1,277 @@
+body {
+  padding-top: 0;
+  color: #666;
+}
+#main-container {
+  margin: 10px auto;
+  max-width: 1180px;
+}
+
+#logo-container {
+  overflow: hidden;
+  padding: 15px 0 0 0;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+#logo-circle {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  background-color: #3aa6d0;
+  float: left;
+  margin-top: 4px;
+  margin-right: 5px;
+}
+
+#logo-text {
+  font-size: 23px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+#logo-grey-text {
+  color: #999;
+}
+
+#keithcollins {
+  color: black;
+  text-decoration: none;
+}
+#keithcollins:hover {
+  color: black;
+  text-decoration: none;
+}
+.whole-section {
+  border-bottom: 1px dotted #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+.item-row {
+  margin-bottom: 10px;
+}
+
+.work-nav-container {
+  margin-top: 15px;
+  margin-bottom: 7px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.work-navigation {
+  padding: 15px 0 15px 0;
+  text-align: center;
+  background-color: white;
+  transition: .5s all;
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  cursor: pointer;
+  font-weight: bold;
+  color: #666;
+}
+.work-navigation:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.work-navigation a {
+  color:#666;
+}
+
+.section-title {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  float: left;
+}
+
+.button-filter {
+  float: left;
+}
+
+.legend-dot {
+  float: right;
+}
+
+.section-circle {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  float: left;
+  margin-top: 23px;
+  margin-right: 4px;
+  margin-left: 15px;
+}
+
+.section-circle-over, .section-circle-selected {
+  border: 1px solid #666;
+  margin-top: 22px;
+  margin-right: 2px;
+}
+
+.section-blue {
+  background-color: #3aa6d0;
+}
+
+.section-yellow {
+  background-color: #ffc83f;
+}
+
+.section-orange {
+  background-color: #ff603f;
+}
+
+.subsection-label {
+  float: left;
+  font-size: 13px;
+  font-weight: 250;
+  margin-top: 19px;
+  margin-left: 2px;
+}
+
+.subsection-label-over, .subsection-label-selected {
+  color: black;
+  text-decoration: underline;
+}
+
+.post img {
+  border: 1px solid #aaa;
+  transition: .5s all;
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+}
+
+.post-pub {
+  font-size: 12px;
+  font-weight: 200;
+  margin: 2px 0 2px 0;
+}
+
+.post-title {
+  font-size: 13px;
+  color: black !important;
+  margin: 2px 0 2px 0;
+}
+.post-title a {
+  color: #000 !important;
+}
+#resume {
+  font-size:16px;
+  line-height:22px;
+  font-weight:300;
+  letter-spacing:0.5px;
+}
+.footer-container {
+  padding-top: 15px;
+  margin-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.circle {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  float: left;
+  margin-top: 3px;
+  margin-right: 4px;
+}
+
+.blue-circle {
+  background-color: #3aa6d0;
+}
+
+.yellow-circle {
+  background-color: #ffc83f;
+}
+
+.orange-circle {
+  background-color: #ff603f;
+}
+
+.black-circle {
+  background-color: #000;
+}
+.grey-circle {
+  background-color: #999;
+}
+.resume-circle {
+  margin-top:5.1px;
+}
+.clearboth {
+  clear: both;
+}
+i {
+  opacity:0.5;
+  filter:alpha(opacity=50); /* For IE8 and earlier */
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #ddd;
+  shape-rendering: crispEdges;
+}
+.dot {
+  cursor: pointer;
+}
+g.y.axis {
+  display: none;
+}
+path.domain {
+  stroke: #ddd;
+}
+.y path {
+  display: none;
+}
+g.tick {
+  fill: #999;
+}
+g.tick line {
+  stroke-dasharray:5,5;
+  fill:#ccc;
+}
+.chart-view {
+  font-size: 12px;
+  color:#fff;
+  /*text-decoration: underline;*/
+  cursor: pointer;
+  float: left;
+  margin-left: 15px;
+  /*font-weight: bold;*/
+  margin-top: 18px;
+  background-color: #999;
+  padding:2px 0 2px 0;
+  text-align: center;
+  width:150px;
+  border-radius: 5px;
+}
+.chart-view:hover {
+  background-color: #666;
+}
+.chart-view-active {
+  background-color: #666;
+}
+
+#chart {
+  position: relative;
+  padding-bottom: 15px;
+  /*border-bottom: 2px dotted rgba(58, 166, 208,0.5);*/
+}
+.bold {
+  font-weight: bold;
+}
+
+textarea {
+  width:100%;
+  min-height: 300px;
+}
+.hello, .description {
+  text-align: center;
+}
