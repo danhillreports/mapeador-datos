@@ -19,11 +19,18 @@ function datamapper(mapContainer, mapType, data) {
   // set content vars
   var id;
   var width = 960,
-      height = 600;
+      height = 450;
   var formatNumber = d3.format(",.0f");
 
+  var projection = d3.geo.conicConformal()
+    .rotate([102, 0])
+    .center([0, 24])
+    .parallels([17.5, 29.5])
+    .scale(1200)
+    .translate([width / 2, height / 2]);
+
   var path = d3.geo.path()
-      .projection(null)
+              .projection(projection);
 
   var ttwidth = 220,
       ttheight = 100;
@@ -57,11 +64,11 @@ function datamapper(mapContainer, mapType, data) {
     .style("min-height",ttheight+"px");
 
   queue()
-    .defer(d3.json, "us.json")
+    .defer(d3.json, "mexico.json")
     .defer(d3.json, "counties.json")
     .await(ready);
 
-  function ready(error, us, counties) {
+  function ready(error, mexico, counties) {
     // get field names for values
     var keys = Object.keys(data[0]);
     var valFields = [];
@@ -77,7 +84,7 @@ function datamapper(mapContainer, mapType, data) {
     // get range of sequence field, then sort, then get min and max
     var seqs = [];
     data.forEach(function(d) {
-      d.fips = d3.format('05')(parseInt(d.fips));
+      d.fips = d.fips;
       if (seqs.indexOf(d.sequence) == -1) {
         seqs.push(d.sequence);
       }
@@ -108,10 +115,9 @@ function datamapper(mapContainer, mapType, data) {
       mapData["undefined"] = [];
       d3.select("#dm-sequence-btns").html("")
     }
-
     // create fipstocounty
     var fipstocounty = [];
-    topojson.feature(us, us.objects.counties).features.forEach(function(d) {
+    topojson.feature(mexico, mexico.objects.mex_counties).features.forEach(function(d) {
       fipstocounty[d.id] = d;
     });
 
@@ -204,7 +210,7 @@ function datamapper(mapContainer, mapType, data) {
         })
         .attr("r", function(d) { 
           var dotsize = (radius(d[selectedField]) >= 0) ? radius(d[selectedField]) : 0;
-          return dotsize; 
+          return dotsize;
         });     
     } else {
       // choropleth
@@ -214,16 +220,16 @@ function datamapper(mapContainer, mapType, data) {
       svg.append("g")
         .attr("class", "dm-counties")
       .selectAll("path")
-        .data(topojson.feature(us, us.objects.counties).features)
+        .data(topojson.feature(mexico, mexico.objects.mex_counties).features)
       .enter().append("path")
         .attr("class","dm-county")
         .attr("id",function(d) { return d.id })
         .attr("d", path)
-        .call(getFill);       
+        .call(getFill);
     }
 
     svg.append("path")
-      .datum(topojson.feature(us, us.objects.nation))
+      .datum(topojson.feature(mexico, mexico.objects.nation))
       .attr("class", "dm-nation")
       .attr("id","dm-nation-shape")
       .attr("d", path);
@@ -252,7 +258,7 @@ function datamapper(mapContainer, mapType, data) {
         if (mapType == "choropleth") {
           d3.select(this)
             .style("fill",function(d) {
-              var fixedfips = d3.format('05')(parseInt(d.id));
+              var fixedfips = parseInt(d.id);
               if (typeof nestedData[fixedfips] === "undefined" || typeof nestedData[fixedfips][selectedSeq] === "undefined") {
                 return choropleth["null"];
               } else {
@@ -303,7 +309,7 @@ function datamapper(mapContainer, mapType, data) {
         .transition()
         .duration(1000)
         .style("fill",function(d) {
-          var fixedfips = d3.format('05')(parseInt(d.id));
+          var fixedfips = parseInt(d.id);
           if (typeof nestedData[fixedfips] === "undefined" || typeof nestedData[fixedfips][selectedSeq] === "undefined") {
             return choropleth["null"];
           } else {
