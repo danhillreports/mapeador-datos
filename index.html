@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Paste in CSV data, see the data on a map, download an SVG">
-  <meta name="keywords" content="csv data mapper, CSV to SVG, keith collins, d3, CSV, map, counties, fips, visualize csv">
-  <title>Keith Collins | CSV Data Mapper</title>
+  <meta name="keywords" content="csv data mapper, CSV to SVG, mexico, d3, CSV, map, counties, fips, visualize csv">
+  <title>CSV Data Mapper</title>
   <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
 </head>
 <body>
@@ -60,7 +60,7 @@
       <button id="download-svg" class="btn btn-primary">Download SVG</button>
       <!-- footer -->
       <div class="footer-container">
-       <p>Data Mapper is a project by <a href="/">Keith Collins</a>. See the code or fork it <a href="https://github.com/keithcollins/data-mapper">here</a>.
+       <p>Data Mapper is a project by <a href="http://kcollins.io/data-mapper/">Keith Collins</a>. See the code or fork it <a href="https://github.com/keithcollins/data-mapper">here</a>.
       <p>Made possible by <a href="http://d3js.org">D3.js</a>, <a href="http://bost.ocks.org/mike/bubble-map/">Let's Make a Bubble Map</a>, and this <a href="http://bl.ocks.org/mbostock/4060606">Choropleth example</a> by Mike Bostock.</p>
       <p>Inspired by <a href="http://bl.ocks.org/shancarter/raw/4748131/">Mister Nester</a> and <a href="http://shancarter.github.io/mr-data-converter/">Mr. Data Converter</a> by Shan Carter.</p>
       </div>
@@ -109,17 +109,6 @@
     var blob = new Blob([svgtext], {type: "image/svg+xml"});
     saveAs(blob, "datamapper.svg");
   });
-})();
-
-
-// google google-analytics
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-19469914-2']);
-_gaq.push(['_trackPageview']);
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 </script>
 
